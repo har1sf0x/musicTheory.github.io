@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Οπλισμός - Μείζονες Κλίμακες</title>
+    <style>
+        h1, img {text-align:center;}
+        .centered {
+            position: fixed;
+            left: 50%;
+            min-height: 100px;
+            transform: translate(-50%, 0%);
+        }
+        #start {
+            position:fixed;
+            right: 10%;
+            bottom: 10%;
+        }
+    </style>
+    <script>
+        function changeImg() {
+            var filename = document.getElementById("keys").value;
+            document.getElementById("img01").src = ("Major keys/"+filename+" key.svg");
+        }
+    </script>
+</head>
+<body>
+    <h1>Οπλισμός - Μείζονες Κλίμακες</h1>
+    <img id="img01" class="centered" src="Major keys/C key.svg" style="width:215px">
+    <div class="centered" style="transform: translate(-50%, 0%)">
+    <label for="keys" class="center">Επιλέξτε κλίμακα:</label>
+    <select id="keys" class="center" name="ddl_key" onchange="changeImg()" style="padding:15px;">
+        <option value="Csharp">Ντο#+</option>
+        <option value="Fsharp">Φα#+</option>
+        <option value="B">Σι+</option>
+        <option value="E">Μι+</option>
+        <option value="A">Λα+</option>
+        <option value="D">Ρε+</option>
+        <option value="G">Σολ+</option>
+        <option value="C" selected=true>Ντο+</option>
+        <option value="F">Φα+</option>
+        <option value="Bflat">Σιb+</option>
+        <option value="Eflat">Μιb+</option>
+        <option value="Aflat">Λαb+</option>
+        <option value="Dflat">Ρεb+</option>
+        <option value="Gflat">Σολb+</option>
+        <option value="Cflat">Ντοb+</option>
+    </select>
+    </div>
+    <a href="index.html"  id="start">Αρχική σελίδα</a>
+</body>
+</html>

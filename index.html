@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Μουσική Θεωρία</title>
+    <style>
+        h1, img {text-align:center;}
+        .centered {
+            position: fixed;
+            left: 50%;
+            min-height: 100px;
+            transform: translate(-50%, 0%);
+        }
+    </style>
+    <script>
+        function changeImg() {
+            var filename = document.getElementById("keys").value;
+            document.getElementById("img01").src = ("Major keys/"+filename+" key.svg");
+        }
+    </script>
+</head>
+<body>
+    <h1>Μουσική Θεωρία</h1>
+    <ul>
+        <li>Οπλισμοί κλιμάκων</li>
+        <ul>
+            <li><a href="MajorKeys.html">Μείζονες κλίμακες</a></li>
+            <li><a href="minorKeys.html">Ελάσσονες κλίμακες</a></li>
+        </ul>
+        <!--li>Διαστήματα</li-->
+    </ul>
+</body>
+</html>

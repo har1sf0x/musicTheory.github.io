@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Οπλισμός - Ελάσσονες Κλίμακες - Ασκήσεις</title>
+    <style>
+        h1, h2 {text-align:center;}
+        .centered {
+            text-align:center;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, 0%);
+        }
+        hr {
+            border-width: 0px;
+        }
+    </style>
+    <script>
+        var filenames = [
+            "minor keys/eflat key.svg",
+            "minor keys/g key.svg",
+            "minor keys/f key.svg",
+            "minor keys/d key.svg",
+            "minor keys/csharp key.svg",
+            "minor keys/dsharp key.svg",
+            "minor keys/e key.svg",
+            "minor keys/fsharp key.svg",
+            "minor keys/asharp key.svg",
+            "minor keys/aflat key.svg",
+            "minor keys/gsharp key.svg",
+            "minor keys/a key.svg",
+            "minor keys/c key.svg",
+            "minor keys/b key.svg",
+            "minor keys/bflat key.svg"
+        ]
+
+        function setupImg() {
+            var filename = filenames[Math.floor(Math.random() * filenames.length)];
+            img = document.getElementById("img01");
+            img.src = img.dataset.answer = filename;
+            document.getElementById("next").style.visibility = "hidden";
+            document.getElementById("submit").style.visibility = "visible";
+            document.getElementById("answer").innerHTML = "";
+        }
+
+        function checkAnswer() {
+            var answer = document.getElementById("keys").value;
+            var img = document.getElementById("img01");
+            //document.getElementById("answer").innerHTML = ("minor keys/" + answer + " key.svg") == img.dataset.answer;
+            if (("minor keys/" + answer + " key.svg") == img.dataset.answer) {
+                document.getElementById("answer").innerHTML = "Σωστά";
+                document.getElementById("submit").style.visibility = "hidden";
+                document.getElementById("next").style.visibility = "visible";
+            } else {
+                document.getElementById("answer").innerHTML = "Λάθος. Παρακαλώ προσπαθείστε ξανά.";
+            }
+        }
+    </script>
+</head>
+<body onload="setupImg()">
+    <h1>Οπλισμός - Ελάσσονες Κλίμακες</h1>
+    <h2>Ασκήσεις</h2>
+    <hr>
+    <img id="img01" src="" class="centered" data-answer="">
+    <hr>
+    <p style="text-align:center;">Επιλέξτε κλίμακα:</p>
+    <hr>
+    <select id="keys" name="ddl_key" class="centered">
+        <option value="asharp">λα#-</option>
+        <option value="dsharp">ρε#-</option>
+        <option value="gsharp">σολ#-</option>
+        <option value="csharp">ντο#-</option>
+        <option value="fsharp">φα#-</option>
+        <option value="b">σι</option>
+        <option value="e">μι-</option>
+        <option value="a" selected=true>λα-</option>
+        <option value="d">ρε-</option>
+        <option value="g">σολ-</option>
+        <option value="c">ντο-</option>
+        <option value="f">φα-</option>
+        <option value="bflat">σιb-</option>
+        <option value="eflat">μιb-</option>
+        <option value="aflat">λαb-</option>
+    </select>
+    <button class="centered" id="submit" onclick="checkAnswer()">Απάντηση</button>
+    <hr>
+    <p class="centered" id="answer"></p>
+    <button class="centered" id="next" onclick="setupImg()">Επόμενο</button>
+    <hr>
+    <a href="index.html">Αρχική σελίδα</a>
+
+</body>
+</html>

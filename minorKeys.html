@@ -15,10 +15,22 @@
             border-width: 0px;
         }
     </style>
+    <script type='text/javascript' src='//www.midijs.net/lib/midi.js'></script>
     <script>
+        var midiFile = "minor keys/a key ";
         function changeImg() {
             var filename = document.getElementById("keys").value;
             document.getElementById("img01").src = ("minor keys/"+filename+" key.svg");
+            midiFile = ("minor keys/"+filename+" key ");
+        }
+        function playHarmonic() {
+            MIDIjs.play(midiFile + "harmonic.mid");
+        }
+        function playMelodic() {
+            MIDIjs.play(midiFile + "melodic.mid");
+        }
+        function stop() {
+            MIDIjs.stop()
         }
     </script>
 </head>
@@ -27,25 +39,47 @@
     <hr>
     <img id="img01" src="Major keys/C key.svg" class="centered">
     <hr>
-    <p style="text-align:center;">Επιλέξτε κλίμακα:</p>
+    <table class="centered">
+        <tr>
+            <td>
+                <p style="text-align:center;">Επιλέξτε κλίμακα:</p>
+            </td>
+            <td>
+                <select id="keys" name="ddl_key" onchange="changeImg()" class="centered">
+                    <option value="asharp">λα#-</option>
+                    <option value="dsharp">ρε#-</option>
+                    <option value="gsharp">σολ#-</option>
+                    <option value="csharp">ντο#-</option>
+                    <option value="fsharp">φα#-</option>
+                    <option value="b">σι</option>
+                    <option value="e">μι-</option>
+                    <option value="a" selected=true>λα-</option>
+                    <option value="d">ρε-</option>
+                    <option value="g">σολ-</option>
+                    <option value="c">ντο-</option>
+                    <option value="f">φα-</option>
+                    <option value="bflat">σιb-</option>
+                    <option value="eflat">μιb-</option>
+                    <option value="aflat">λαb-</option>
+                </select>
+            </td>
+        </tr>
+    </table>
     <hr>
-    <select id="keys" name="ddl_key" onchange="changeImg()" class="centered">
-        <option value="asharp">λα#-</option>
-        <option value="dsharp">ρε#-</option>
-        <option value="gsharp">σολ#-</option>
-        <option value="csharp">ντο#-</option>
-        <option value="fsharp">φα#-</option>
-        <option value="b">σι</option>
-        <option value="e">μι-</option>
-        <option value="a" selected=true>λα-</option>
-        <option value="d">ρε-</option>
-        <option value="g">σολ-</option>
-        <option value="c">ντο-</option>
-        <option value="f">φα-</option>
-        <option value="bflat">σιb-</option>
-        <option value="eflat">μιb-</option>
-        <option value="aflat">λαb-</option>
-    </select>
+    <table class="centered">
+        <tr>
+            <td>
+                <button onclick="playHarmonic()" class="centered">Αναπαραγωγή αρμονικής κλίμακας</button>
+            </td>
+            <td>
+                <button onclick="playMelodic()" class="centered">Αναπαραγωγή μελωδικής κλίμακας (ανιούσα/κατιούσα)</button>
+
+            </td>
+            <td>
+                <button onclick="stop()" class="centered">Διακοπή αναπαραγωγή</button>
+            </td>
+        </tr>
+    </table>
     <hr>
     <a href="index.html">Αρχική σελίδα</a>
 </body>

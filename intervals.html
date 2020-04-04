@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Διαστήματα</title>
+    <style>
+        h1 {text-align:center;}
+        .centered {
+            text-align:center;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, 0%);
+        }
+        hr {
+            border-width: 0px;
+        }
+    </style>
+    <script type='text/javascript' src='//www.midijs.net/lib/midi.js'></script>
+    <script>
+        var midiFile;
+        var midiFileMelodic;
+        function changeImg() {
+            var baseObj = document.getElementById("base");
+            var sizeObj = document.getElementById("size");
+            var typeObj = document.getElementById("type");
+            var dirObj = document.getElementById("direction");
+            var filename = sizeObj.value + " " + typeObj.value + "/" + dirObj.value + " " + base.value + ".svg";
+            document.getElementById("img01").src = filename;
+            document.getElementById("logger").innerHTML = "";
+            midiFile = sizeObj.value + " " + typeObj.value + "/" + dirObj.value + " " + base.value + ".mid";
+            midiFileMelodic = sizeObj.value + " " + typeObj.value + "/" + dirObj.value + " " + base.value + " melodic.mid";
+        }
+        function sizeChanged() {
+            var sizeObj = document.getElementById("size");
+            var typeObj = document.getElementById("type");
+            while (typeObj.length > 0) {
+                typeObj.remove(0)
+            }
+            if (sizeObj.value == "4th" || sizeObj.value == "5th") {
+                var option = document.createElement("option");
+                option.text = "αυξημένο";
+                option.value = "augmented"
+                typeObj.add(option)
+                option = document.createElement("option");
+                option.text = "Καθαρό";
+                option.value = "perfect";
+                option.selected = true;
+                typeObj.add(option)
+                option = document.createElement("option");
+                option.text = "ελαττωμένο";
+                option.value = "diminished"
+                typeObj.add(option)
+            } else {
+            var option = document.createElement("option");
+                option.text = "αυξημένο";
+                option.value = "augmented"
+                typeObj.add(option)
+                option = document.createElement("option");
+                option.text = "Μεγάλο";
+                option.value = "Major";
+                option.selected = true;
+                typeObj.add(option)
+                option = document.createElement("option");
+                option.text = "μικρό";
+                option.value = "minor"
+                typeObj.add(option)
+                option = document.createElement("option");
+                option.text = "ελαττωμένο";
+                option.value = "diminished"
+                typeObj.add(option)
+            }
+        }
+        function play(melodic) {
+            if (melodic) {
+                MIDIjs.play(midiFileMelodic);
+            } else {
+                MIDIjs.play(midiFile);
+            }
+        }
+        function stop() {
+            MIDIjs.stop();
+        }
+        function setupPage() {
+            sizeChanged()
+            changeImg()
+        }
+        function displayError() {
+            document.getElementById("logger").innerHTML = "Αυτό το διάστημα δεν υπάρχει. Παρακαλώ επιλέξτε ένα έγκυρο διάστημα.";
+        }
+    </script>
+</head>
+<body onload="setupPage()">
+    <h1>Διαστήματα</h1>
+    <hr>
+    <img id="img01" src="" class="centered" onerror="displayError()">
+    <hr>
+    <p style="text-align:center;">Επιλέξτε από τις παρακάτω επιλογές:</p>
+    <hr>
+    <table class="centered">
+        <tr>
+                <th>Βάση:</th>
+                <th>Μέγεθος:</th>
+                <th>Είδος:</th>
+                <th>Φορά:</th>
+        </tr>
+        <tr>
+            <td>
+                <select id="base" name="ddl_base" onchange="">
+                    <option value="bx">σιx</option>
+                    <option value="bsharp">σι#</option>
+                    <option value="b">σι</option>
+                    <option value="bb">σιb</option>
+                    <option value="bbb">σιbb</option>
+                    <option value="ax">λαx</option>
+                    <option value="asharp">λα#</option>
+                    <option value="a">λα</option>
+                    <option value="ab">λαb</option>
+                    <option value="abb">λαbb</option>
+                    <option value="gx">σολx</option>
+                    <option value="gsharp">σολ#</option>
+                    <option value="g">σολ</option>
+                    <option value="gb">σολb</option>
+                    <option value="gbb">σολbb</option>
+                    <option value="fx">φαx</option>
+                    <option value="fsharp">φα#</option>
+                    <option value="f">φα</option>
+                    <option value="fb">φαb</option>
+                    <option value="fbb">φαbb</option>
+                    <option value="ex">μιx</option>
+                    <option value="esharp">μι#</option>
+                    <option value="e">μι</option>
+                    <option value="eb">μιb</option>
+                    <option value="ebb">μιbb</option>
+                    <option value="dx">ρεx</option>
+                    <option value="dsharp">ρε#</option>
+                    <option value="d">ρε</option>
+                    <option value="db">ρεb</option>
+                    <option value="dbb">ρεbb</option>
+                    <option value="cx">ντοx</option>
+                    <option value="csharp">ντο#</option>
+                    <option value="c" selected="true">ντο</option>
+                    <option value="cb">ντοb</option>
+                    <option value="cbb">ντοbb</option>
+                </select>
+            </td>
+            <td>
+                <select id="size" name="ddl_size" onchange="sizeChanged()">
+                    <option value="7th">7ης</option>
+                    <option value="6th">6ης</option>
+                    <option value="5th">5ης</option>
+                    <option value="4th">4ης</option>
+                    <option value="3rd">3ης</option>
+                    <option value="2nd" selected="true">2ας</option>
+                </select>
+            </td>
+            <td>
+                <select id="type" name="ddl_type" onchange="">
+                    <!--option value="aumented">αυξημένο</option>
+                    <option value="Major" selected="true">Μεγάλο</option>
+                    <option value="minor">μικρό</option>
+                    <option value="diminshed">ελαττωμένο</option-->
+                </select>
+            </td>
+            <td>
+                <select id="direction" name="ddl_direction" onchange="">
+                    <option value="up" selected="true">ανιών</option>
+                    <option value="down">κατιών</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <button onclick="changeImg()" class="centered">Ανανέωση διαστήματος</button>
+    <hr>
+    <table class="centered">
+        <tr>
+            <td>
+                <button onclick="play(false)" onerror="displayError()">Αναπαραγωγή διαστήματος</button>
+            </td>
+            <td>
+                <button onclick="play(true)" onerror="displayError()">Αναπαραγωγή μελωδικού διαστήματος</button>
+            </td>
+            <td>
+                <button onclick="stop()">Διακοπή αναπαραγωγή</button>
+            </td>
+        </tr>
+    </table>
+    <p id="logger" class="centered"></p>
+    <hr>
+    <a href="index.html">Αρχική σελίδα</a>
+</body>
+</html>

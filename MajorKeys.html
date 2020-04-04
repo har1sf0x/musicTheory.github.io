@@ -15,10 +15,19 @@
             border-width: 0px;
         }
     </style>
+    <script type='text/javascript' src='//www.midijs.net/lib/midi.js'></script>
     <script>
+        var midiFile = "Major keys/C key.mid";
         function changeImg() {
             var filename = document.getElementById("keys").value;
             document.getElementById("img01").src = ("Major keys/"+filename+" key.svg");
+            midiFile = ("Major keys/"+filename+" key.mid");
+        }
+        function play() {
+            MIDIjs.play(midiFile);
+        }
+        function stop() {
+            MIDIjs.stop()
         }
     </script>
 </head>
@@ -27,25 +36,43 @@
     <hr>
     <img id="img01" src="Major keys/C key.svg" class="centered">
     <hr>
-    <p style="text-align:center;">Επιλέξτε κλίμακα:</p>
+    <table class="centered">
+        <tr>
+            <td>
+                <p style="text-align:center;">Επιλέξτε κλίμακα:</p>
+            </td>
+            <td>
+                <select id="keys" name="ddl_key" onchange="changeImg()" class="centered">
+                    <option value="Csharp">Ντο#+</option>
+                    <option value="Fsharp">Φα#+</option>
+                    <option value="B">Σι+</option>
+                    <option value="E">Μι+</option>
+                    <option value="A">Λα+</option>
+                    <option value="D">Ρε+</option>
+                    <option value="G">Σολ+</option>
+                    <option value="C" selected=true>Ντο+</option>
+                    <option value="F">Φα+</option>
+                    <option value="Bflat">Σιb+</option>
+                    <option value="Eflat">Μιb+</option>
+                    <option value="Aflat">Λαb+</option>
+                    <option value="Dflat">Ρεb+</option>
+                    <option value="Gflat">Σολb+</option>
+                    <option value="Cflat">Ντοb+</option>
+                </select>
+            </td>
+        </tr>
+    </table>
     <hr>
-    <select id="keys" name="ddl_key" onchange="changeImg()" class="centered">
-        <option value="Csharp">Ντο#+</option>
-        <option value="Fsharp">Φα#+</option>
-        <option value="B">Σι+</option>
-        <option value="E">Μι+</option>
-        <option value="A">Λα+</option>
-        <option value="D">Ρε+</option>
-        <option value="G">Σολ+</option>
-        <option value="C" selected=true>Ντο+</option>
-        <option value="F">Φα+</option>
-        <option value="Bflat">Σιb+</option>
-        <option value="Eflat">Μιb+</option>
-        <option value="Aflat">Λαb+</option>
-        <option value="Dflat">Ρεb+</option>
-        <option value="Gflat">Σολb+</option>
-        <option value="Cflat">Ντοb+</option>
-    </select>
+    <table class="centered">
+        <tr>
+            <td>
+                <button onclick="play()" class="centered">Αναπαραγωγή κλίμακας</button>
+            </td>
+            <td>
+                <button onclick="stop()" class="centered">Διακοπή αναπαραγωγή</button>
+            </td>
+        </tr>
+    </table>
     <hr>
     <a href="index.html">Αρχική σελίδα</a>
 </body>

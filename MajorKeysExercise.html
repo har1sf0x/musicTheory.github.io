@@ -63,29 +63,45 @@
     <hr>
     <img id="img01" src="" class="centered" data-answer="">
     <hr>
-    <p style="text-align:center;">Επιλέξτε κλίμακα:</p>
+    <p style="text-align:center;">Επιλέξτε τη σωστή κλίμακα:</p>
     <hr>
-    <select id="keys" name="ddl_key" class="centered">
-        <option value="Csharp">Ντο#+</option>
-        <option value="Fsharp">Φα#+</option>
-        <option value="B">Σι+</option>
-        <option value="E">Μι+</option>
-        <option value="A">Λα+</option>
-        <option value="D">Ρε+</option>
-        <option value="G">Σολ+</option>
-        <option value="C" selected=true>Ντο+</option>
-        <option value="F">Φα+</option>
-        <option value="Bflat">Σιb+</option>
-        <option value="Eflat">Μιb+</option>
-        <option value="Aflat">Λαb+</option>
-        <option value="Dflat">Ρεb+</option>
-        <option value="Gflat">Σολb+</option>
-        <option value="Cflat">Ντοb+</option>
-    </select>
-    <button class="centered" id="submit" onclick="checkAnswer()">Απάντηση</button>
+    <table class="centered">
+        <tr>
+            <td>
+                <select id="keys" name="ddl_key" class="centered">
+                    <option value="Csharp">Ντο#+</option>
+                    <option value="Fsharp">Φα#+</option>
+                    <option value="B">Σι+</option>
+                    <option value="E">Μι+</option>
+                    <option value="A">Λα+</option>
+                    <option value="D">Ρε+</option>
+                    <option value="G">Σολ+</option>
+                    <option value="C" selected=true>Ντο+</option>
+                    <option value="F">Φα+</option>
+                    <option value="Bflat">Σιb+</option>
+                    <option value="Eflat">Μιb+</option>
+                    <option value="Aflat">Λαb+</option>
+                    <option value="Dflat">Ρεb+</option>
+                    <option value="Gflat">Σολb+</option>
+                    <option value="Cflat">Ντοb+</option>
+                </select>
+            </td>
+            <td>
+                <button class="centered" id="submit" onclick="checkAnswer()">Απάντηση</button>
+            </td>
+        </tr>
+    </table>
     <hr>
-    <p class="centered" id="answer"></p>
-    <button class="centered" id="next" onclick="setupImg()">Επόμενο</button>
+    <table class="centered">
+        <tr>
+            <td>
+                <p class="centered" id="answer"></p>
+            </td>
+            <td>
+                <button class="centered" id="next" onclick="setupImg()">Επόμενο</button>
+            </td>
+        </tr>
+    </table>
     <hr>
     <a href="index.html">Αρχική σελίδα</a>
 

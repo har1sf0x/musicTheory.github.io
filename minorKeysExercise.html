@@ -35,6 +35,7 @@
         ]
 
         function setupImg() {
+            stop();
             var filename = filenames[Math.floor(Math.random() * filenames.length)];
             img = document.getElementById("img01");
             img.src = img.dataset.answer = filename;

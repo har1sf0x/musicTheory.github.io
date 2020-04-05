@@ -19,6 +19,7 @@
     <script>
         var midiFile = "Major keys/C key.mid";
         function changeImg() {
+            stop();
             var filename = document.getElementById("keys").value;
             document.getElementById("img01").src = ("Major keys/"+filename+" key.svg");
             midiFile = ("Major keys/"+filename+" key.mid");

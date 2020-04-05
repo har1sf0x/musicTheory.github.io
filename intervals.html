@@ -20,15 +20,16 @@
         var midiFile;
         var midiFileMelodic;
         function changeImg() {
+            var clefObj = document.getElementById("clef");
             var baseObj = document.getElementById("base");
             var sizeObj = document.getElementById("size");
             var typeObj = document.getElementById("type");
             var dirObj = document.getElementById("direction");
-            var filename = sizeObj.value + " " + typeObj.value + "/" + dirObj.value + " " + base.value + ".svg";
+            var filename = sizeObj.value + " " + typeObj.value + "/" + clefObj.value + " " + dirObj.value + " " + base.value + ".svg";
             document.getElementById("img01").src = filename;
             document.getElementById("logger").innerHTML = "";
-            midiFile = sizeObj.value + " " + typeObj.value + "/" + dirObj.value + " " + base.value + ".mid";
-            midiFileMelodic = sizeObj.value + " " + typeObj.value + "/" + dirObj.value + " " + base.value + " melodic.mid";
+            midiFile = sizeObj.value + " " + typeObj.value + "/" + clefObj.value + " " + dirObj.value + " " + base.value + ".mid";
+            midiFileMelodic = sizeObj.value + " " + typeObj.value + "/" + clefObj.value + " " + dirObj.value + " " + base.value + " melodic.mid";
         }
         function sizeChanged() {
             var sizeObj = document.getElementById("size");
@@ -98,12 +99,18 @@
     <hr>
     <table class="centered">
         <tr>
-                <th>Βάση:</th>
-                <th>Μέγεθος:</th>
-                <th>Είδος:</th>
-                <th>Φορά:</th>
+            <th>Κλειδί:</th>
+            <th>Βάση:</th>
+            <th>Μέγεθος:</th>
+            <th>Είδος:</th>
+            <th>Φορά:</th>
         </tr>
         <tr>
+            <td>
+                <select id="clef" name="ddl_clef" onchange="">
+                    <option value="g2">σολ(2η γραμμή)</option>
+                </select>
+            </td>
             <td>
                 <select id="base" name="ddl_base" onchange="">
                     <option value="bx">σιx</option>

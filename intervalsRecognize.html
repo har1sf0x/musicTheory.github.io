@@ -1287,6 +1287,7 @@
             "6th augmented/g2 down a fx.svg"
         ]
         function setupImg() {
+            stop();
             var filename = filenames[Math.floor(Math.random() * filenames.length)];
             img = document.getElementById("img01");
             img.src = filename;
@@ -1486,7 +1487,7 @@
                 <p class="centered" id="answer"></p>
             </td>
             <td>
-                <button class="centered" id="next" onclick="stop();setupImg()">Επόμενο</button>
+                <button class="centered" id="next" onclick="setupImg()">Επόμενο</button>
             </td>
         </tr>
     </table>

@@ -1,4 +1,4 @@
-<html>
+<!--html>
 	<head>
 		<script src='https://surikov.github.io/webaudiofont/npm/dist/WebAudioFontPlayer.js'></script>
 		<script src='https://surikov.github.io/webaudiofontdata/sound/0000_JCLive_sf2_file.js'></script>
@@ -16,4 +16,23 @@
 		<hr/>
 		<p><a href="https://github.com/surikov/webaudiofont">source</a></p>
 	</body>
-</html>
+</html-->
+<midi-player
+  src="https://cdn.jsdelivr.net/gh/cifkao/html-midi-player@2b12128/twinkle_twinkle.mid"
+  sound-font visualizer="#myPianoRollVisualizer">
+</midi-player>
+
+<midi-visualizer type="piano-roll" id="myPianoRollVisualizer" 
+  src="https://cdn.jsdelivr.net/gh/cifkao/html-midi-player@2b12128/twinkle_twinkle.mid">
+</midi-visualizer>
+
+<midi-player
+  src="https://cdn.jsdelivr.net/gh/cifkao/html-midi-player@2b12128/twinkle_twinkle.mid"
+  sound-font visualizer="#myStaffVisualizer">
+</midi-player>
+
+<midi-visualizer type="staff" id="myStaffVisualizer" 
+  src="https://cdn.jsdelivr.net/gh/cifkao/html-midi-player@2b12128/twinkle_twinkle.mid">
+</midi-visualizer>
+
+<script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.21.0/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.1.1"></script>

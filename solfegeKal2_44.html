@@ -3,11 +3,11 @@
 		<script src='https://surikov.github.io/webaudiofont/npm/dist/WebAudioFontPlayer.js'></script>
 		<script src='https://surikov.github.io/webaudiofontdata/sound/0000_JCLive_sf2_file.js'></script>
 		<script>
-			var selectedPreset=_tone_0000_JCLive_sf2_file;
+			var selectedPreset='_tone_0000_JCLive_sf2_file';
 			var AudioContextFunc = window.AudioContext || window.webkitAudioContext;
 			var audioContext = new AudioContextFunc();
 			var player=new WebAudioFontPlayer();
-			player.loader.decodeAfterLoading(audioContext, '_tone_0000_JCLive_sf2_file');
+			player.loader.decodeAfterLoading(audioContext, selectedPreset);//'_tone_0000_JCLive_sf2_file');
 		</script>
 	</head>
 	<body>

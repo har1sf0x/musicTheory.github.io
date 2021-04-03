@@ -1,16 +1,6 @@
 <html>
 	<head>
 		<script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.21.0/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.1.1"></script>
-		<!--script src='https://surikov.github.io/webaudiofont/npm/dist/WebAudioFontPlayer.js'></script>
-		<script src='https://surikov.github.io/webaudiofontdata/sound/0000_JCLive_sf2_file.js'></script>
-		<script>
-			//var selectedPreset='_tone_0000_JCLive_sf2_file';
-			var selectedPreset='../Solfege/Kalomoiris/Teuxos2o/Άσκηση 44-Piano.mid';
-			var AudioContextFunc = window.AudioContext || window.webkitAudioContext;
-			var audioContext = new AudioContextFunc();
-			var player=new WebAudioFontPlayer();
-			player.loader.decodeAfterLoading(audioContext, selectedPreset);//'_tone_0000_JCLive_sf2_file');
-		</script-->
 	</head>
 	<body>
 		<p/>
@@ -18,27 +8,9 @@
 		<p/>
 		<object data="Solfege/Kalomoiris/Teuxos2o/Άσκηση 44-Voice.pdf" type="application/pdf" width="750" height="530">
 		</object>
-		<p/>
-		<midi-player src="Solfege/Kalomoiris/Teuxos2o/Άσκηση 44-Piano.mid" sound-font > // "https://cdn.jsdelivr.net/gh/cifkao/html-midi-player@2b12128/twinkle_twinkle.mid" sound-font visualizer="#myStaffVisualizer">
-		</midi-player>
-		<!--p><a href="#" onmousedown="player.queueWaveTable(audioContext, audioContext.destination, selectedPreset, 0, 55, 3.5);">Play a note</a></p>
-		<hr/>
-		<p><a href="https://github.com/surikov/webaudiofont">source</a></p-->
+		<p>Συνοδεία</p>
+		<midi-player src="Solfege/Kalomoiris/Teuxos2o/Άσκηση 44-Piano.mid" sound-font/>
+		<p>χωρίς συνοδεία</p>
+		<midi-player src="Solfege/Kalomoiris/Teuxos2o/Άσκηση 44-Voice.mid" sound-font/>
 	</body>
 </html>
-<!--midi-player
-  src="https://cdn.jsdelivr.net/gh/cifkao/html-midi-player@2b12128/twinkle_twinkle.mid"
-  sound-font visualizer="#myPianoRollVisualizer">
-</midi-player>
-
-<midi-visualizer type="piano-roll" id="myPianoRollVisualizer" 
-  src="https://cdn.jsdelivr.net/gh/cifkao/html-midi-player@2b12128/twinkle_twinkle.mid">
-</midi-visualizer-->
-
-
-
-<!--midi-visualizer type="staff" id="myStaffVisualizer" 
-  src="Solfege/Kalomoiris/Teuxos2o/Άσκηση 44-Piano.mid" // "https://cdn.jsdelivr.net/gh/cifkao/html-midi-player@2b12128/twinkle_twinkle.mid">
-</midi-visualizer-->
-
-
